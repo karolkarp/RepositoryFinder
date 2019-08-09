@@ -11,8 +11,6 @@ export const mapDispatchToProps = (dispatch: object): object => {
 			dispatch(searchActions.addRepositoryList(repositoryList)),
 		setRepositoryDetails: (selectedRepository: object) =>
 			dispatch(searchActions.setRepositoryDetails(selectedRepository)),
-		setRepositoryName: (repositoryName: string) =>
-			dispatch(searchActions.setRepositoryName(repositoryName)),
 	};
 };
 

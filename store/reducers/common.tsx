@@ -12,7 +12,6 @@ export const common = (
 	state: object = initialState,
 	action: Actions
 ): object => {
-	console.log(action);
 	switch (action.type) {
 		case 'SET_LOADER':
 			return {

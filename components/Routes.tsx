@@ -8,7 +8,7 @@ const stackNavigator = createStackNavigator(
 		Details,
 	},
 	{
-		initialRouteName: 'Home',
+		initialRouteName: 'Details',
 		headerMode: 'none',
 	}
 );

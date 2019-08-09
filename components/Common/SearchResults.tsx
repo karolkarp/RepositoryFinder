@@ -7,10 +7,9 @@ import {
 	withNavigation,
 } from 'react-navigation';
 import { View, FlatList } from 'react-native';
-import { Item, Icon, Input, Toast, Button, Text, Spinner } from 'native-base';
+import { Toast, Text, Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../../store/mapToProps';
-import styles from '../../styles';
 import RepositoryListElement from '../Details/RepositoryListElement';
 
 type Navigation = NavigationScreenProp<NavigationState, NavigationParams>;
@@ -39,10 +38,6 @@ class SearchResult extends Component<Props> {
 				text: 'Provide repository name',
 			});
 		}
-	}
-
-	componentDidUpdate() {
-		console.log(this.props);
 	}
 
 	render() {

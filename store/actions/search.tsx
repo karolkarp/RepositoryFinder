@@ -20,13 +20,6 @@ export function setRepositoryDetails(selectedRepository: object): object {
 	};
 }
 
-export function setRepositoryName(repositoryName: string): object {
-	return {
-		type: 'SET_REPOSITORY_NAME',
-		repositoryName,
-	};
-}
-
 export function searchRepository(repositoryName: string) {
 	return async (dispatch: object) => {
 		try {
