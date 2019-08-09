@@ -4,10 +4,6 @@ interface Actions {
 	processing: boolean;
 }
 
-interface State {
-	processing: boolean;
-}
-
 const initialState = {
 	processing: false,
 };
@@ -16,8 +12,9 @@ export const common = (
 	state: object = initialState,
 	action: Actions
 ): object => {
+	console.log(action);
 	switch (action.type) {
-		case 'SET_LIST':
+		case 'SET_LOADER':
 			return {
 				...state,
 				processing: action.processing,
