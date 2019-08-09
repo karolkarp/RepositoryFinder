@@ -3,10 +3,16 @@ import * as searchActions from './actions/search';
 
 export const mapDispatchToProps = (dispatch: object): object => {
 	return {
-		setLoader: (processing: boolean): void =>
+		setLoader: (processing: boolean) =>
 			dispatch(commonActions.setLoader(processing)),
-		setSearchResult: (addNew: boolean = true): void =>
-			dispatch(searchActions.setSearchResult(addNew)),
+		searchRepository: (repositoryName: string) =>
+			dispatch(searchActions.searchRepository(repositoryName)),
+		addRepositoryList: (repositoryList: object[]) =>
+			dispatch(searchActions.addRepositoryList(repositoryList)),
+		setRepositoryDetails: (selectedRepository: object) =>
+			dispatch(searchActions.setRepositoryDetails(selectedRepository)),
+		setRepositoryName: (repositoryName: string) =>
+			dispatch(searchActions.setRepositoryName(repositoryName)),
 	};
 };
 
