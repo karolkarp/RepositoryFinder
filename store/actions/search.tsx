@@ -20,18 +20,11 @@ export function setRepositoryDetails(selectedRepository: object): object {
 	};
 }
 
-export function setRepositoryName(repositoryName: string): object {
-	return {
-		type: 'SET_REPOSITORY_NAME',
-		repositoryName,
-	};
-}
-
 export function searchRepository(repositoryName: string) {
 	return async (dispatch: object) => {
 		try {
 			dispatch(commonActions.setLoader(true));
-			const { SUCCESS, NOT_FOUND } = consts;
+			const { SUCCESS } = consts;
 			const { status, body } = await Auth.fetch(
 				Api.getRepositories(repositoryName)
 			);
