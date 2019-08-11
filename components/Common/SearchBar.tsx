@@ -1,21 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import {
-	NavigationParams,
-	NavigationScreenProp,
-	NavigationState,
-	withNavigation,
-} from 'react-navigation';
 import { View } from 'react-native';
-import { Item, Icon, Input, Toast, Button, Text } from 'native-base';
+import { Item, Icon, Input, Toast, Button } from 'native-base';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../../store/mapToProps';
 import styles from '../../styles';
 
-type Navigation = NavigationScreenProp<NavigationState, NavigationParams>;
-
 interface Props {
-	navigation: Navigation;
 	searchRepository: (repositoryName: string) => {};
 	addRepositoryList: (repositoryName: object[]) => {};
 }
@@ -60,15 +51,17 @@ class SearchBar extends Component<Props, State> {
 	}
 
 	render() {
+		const { repositoryName } = this.state;
+
 		return (
-			<View style={{ padding: 15 }}>
+			<View style={style.mainView}>
 				<Item rounded>
 					<Icon name="ios-search" />
 					<Input
 						onSubmitEditing={this.handleInputSearch}
 						placeholder="Search"
 						onChange={this.handleInputValue}
-						value={this.state.repositoryName}
+						value={repositoryName}
 					/>
 					<Button transparent onPress={this.handleResetButton}>
 						<Icon name="close" />
@@ -82,9 +75,9 @@ class SearchBar extends Component<Props, State> {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(withNavigation(SearchBar));
+)(SearchBar);
 
 const style = StyleSheet.create({
-	mainView: { flex: 1 },
+	mainView: { padding: 15 },
 	itemInput: { backgroundColor: styles.color.backgroundLight },
 });

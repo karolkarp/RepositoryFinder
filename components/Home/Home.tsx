@@ -27,15 +27,6 @@ class Home extends Component<Props> {
 		super(props);
 	}
 
-	componentDidupdate(prevProps) {
-		const {
-			search: { repositoryList: prevRepositoryList },
-		} = prevProps;
-		const {
-			search: { repositoryList },
-		} = this.props;
-	}
-
 	render() {
 		return (
 			<View style={style.mainView}>

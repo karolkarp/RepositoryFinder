@@ -1,22 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import {
-	NavigationParams,
-	NavigationScreenProp,
-	NavigationState,
-	withNavigation,
-} from 'react-navigation';
 import { View, FlatList } from 'react-native';
-import { Item, Icon, Input, Toast, Button, Text, Spinner } from 'native-base';
+import { Toast, Text, Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../../store/mapToProps';
-import styles from '../../styles';
 import RepositoryListElement from '../Details/RepositoryListElement';
 
-type Navigation = NavigationScreenProp<NavigationState, NavigationParams>;
-
 interface Props {
-	navigation: Navigation;
 	searchRepository: (repositoryName: string) => {};
 	common: { processing: boolean };
 	search: { repositoryList: object[] };
@@ -41,10 +31,6 @@ class SearchResult extends Component<Props> {
 		}
 	}
 
-	componentDidUpdate() {
-		console.log(this.props);
-	}
-
 	render() {
 		const {
 			common: { processing },
@@ -58,7 +44,7 @@ class SearchResult extends Component<Props> {
 		return (
 			<View style={style.mainView}>
 				{repositoryList.length === 0 && (
-					<View style={{ width: '100%', alignItems: 'center' }}>
+					<View style={style.noResults}>
 						<Text>No results</Text>
 					</View>
 				)}
@@ -77,11 +63,12 @@ class SearchResult extends Component<Props> {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(withNavigation(SearchResult));
+)(SearchResult);
 
 const style = StyleSheet.create({
 	mainView: {
 		flex: 1,
 		padding: 15,
 	},
+	noResults: { width: '100%', alignItems: 'center' },
 });

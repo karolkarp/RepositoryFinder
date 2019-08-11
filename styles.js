@@ -3,7 +3,7 @@ const styles = {
 		background: '#3d3c38',
 		backgroundLight: '#BBB8BB',
 		tilte: '#1581bf',
-		font: '#fff',
+		font: '#BBB8BB',
 		details: '#BBB8BB',
 	},
 };

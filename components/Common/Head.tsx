@@ -6,7 +6,6 @@ import {
 	NavigationState,
 	withNavigation,
 } from 'react-navigation';
-
 import { Header, Left, Icon, Body } from 'native-base';
 import styles from '../../styles';
 
