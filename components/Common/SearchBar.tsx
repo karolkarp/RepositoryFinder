@@ -47,7 +47,7 @@ class SearchBar extends Component<Props, State> {
 		const repositoryName = '';
 		const { addRepositoryList } = this.props;
 		this.setState({ repositoryName });
-		addRepositoryList([]);
+		addRepositoryList();
 	}
 
 	render() {
@@ -59,7 +59,7 @@ class SearchBar extends Component<Props, State> {
 					<Icon name="ios-search" />
 					<Input
 						onSubmitEditing={this.handleInputSearch}
-						placeholder="Search"
+						placeholder="Search repository"
 						onChange={this.handleInputValue}
 						value={repositoryName}
 					/>
