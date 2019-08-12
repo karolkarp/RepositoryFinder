@@ -6,7 +6,7 @@ import * as commonActions from '../actions/common';
 
 const Auth = new AuthService();
 
-export function addRepositoryList(repositoryList: object[]): object {
+export function addRepositoryList(repositoryList: object[] | null): object {
 	return {
 		type: 'SET_REPOSITORY_LIST',
 		repositoryList,

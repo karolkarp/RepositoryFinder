@@ -6,8 +6,7 @@ import {
 	NavigationState,
 	withNavigation,
 } from 'react-navigation';
-import { View, StatusBar } from 'react-native';
-import { Item, Icon, Input, Toast, Button, Text } from 'native-base';
+import { View } from 'react-native';
 import SearchBar from '../Common/SearchBar';
 import SearchResults from '../Common/SearchResults';
 import { connect } from 'react-redux';

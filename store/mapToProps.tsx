@@ -7,7 +7,7 @@ export const mapDispatchToProps = (dispatch: object): object => {
 			dispatch(commonActions.setLoader(processing)),
 		searchRepository: (repositoryName: string) =>
 			dispatch(searchActions.searchRepository(repositoryName)),
-		addRepositoryList: (repositoryList: object[]) =>
+		addRepositoryList: (repositoryList: object[] | null = null) =>
 			dispatch(searchActions.addRepositoryList(repositoryList)),
 		setRepositoryDetails: (selectedRepository: object) =>
 			dispatch(searchActions.setRepositoryDetails(selectedRepository)),
