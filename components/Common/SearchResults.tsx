@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { View, FlatList } from 'react-native';
-import { Toast, Text, Spinner } from 'native-base';
+import { Toast, Text, Spinner, Item } from 'native-base';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../../store/mapToProps';
 import RepositoryListElement from '../Details/RepositoryListElement';
@@ -43,13 +43,13 @@ class SearchResult extends Component<Props> {
 
 		return (
 			<View style={style.mainView}>
-				{repositoryList.length === 0 && (
+				{repositoryList && repositoryList.length === 0 && (
 					<View style={style.noResults}>
 						<Text>No results</Text>
 					</View>
 				)}
 				<FlatList
-					keyExtractor={(item: object) => item.id}
+					keyExtractor={(item: object) => item.id.toString()}
 					data={repositoryList}
 					renderItem={listItem => (
 						<RepositoryListElement details={listItem.item} />
